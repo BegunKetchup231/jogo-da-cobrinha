@@ -28,7 +28,7 @@ export function drawFoods(ctx) {
     const colorMap = {
         red: '#e53e3e',
         golden: '#f6e05e',
-        bonus: '#9f7aea' // Cor roxa para o bônus, mais visível
+        bonus: '#fefcbf' // Maçã "branca" original
     };
     gameState.foods.forEach(food => {
         ctx.fillStyle = colorMap[food.type];
@@ -38,13 +38,24 @@ export function drawFoods(ctx) {
         const y = food.y * TILE_SIZE + radius;
         ctx.arc(x, y, radius - 2, 0, 2 * Math.PI);
         ctx.fill();
-        
-        // Efeito de brilho para a maçã bônus
-        if (food.type === 'bonus') {
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
-            ctx.beginPath();
-            ctx.arc(x, y, radius, 0, 2*Math.PI);
-            ctx.fill();
-        }
+    });
+}
+
+export function drawObstacles(ctx) {
+    const stateColors = {
+        green: 'rgba(72, 187, 120, 0.5)',
+        yellow: 'rgba(246, 224, 94, 0.6)',
+        red: '#a0aec0'
+    };
+
+    gameState.obstacles.forEach(obs => {
+        ctx.fillStyle = stateColors[obs.state];
+        ctx.strokeStyle = '#4a5568';
+        obs.parts.forEach(part => {
+            ctx.fillRect(part.x * TILE_SIZE, part.y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+            if (obs.state === 'red') {
+                ctx.strokeRect(part.x * TILE_SIZE, part.y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+            }
+        });
     });
 }
