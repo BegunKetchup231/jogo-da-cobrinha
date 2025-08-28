@@ -1,0 +1,19 @@
+body {
+    font-family: 'Press Start 2P', cursive;
+    touch-action: none; /* Evita zoom em toques no mobile */
+}
+
+#gameCanvas {
+    border: 8px solid #4a5568;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 6px 6px rgba(0,0,0,0.25);
+}
+
+.btn-control {
+    transition: all 0.1s ease-in-out;
+}
+
+.btn-control:active {
+    transform: scale(0.95);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+}

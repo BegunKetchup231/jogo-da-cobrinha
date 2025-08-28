@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Refatorado</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-900 text-white flex flex-col items-center justify-center min-h-screen p-4">
+
+    <div class="w-full max-w-lg mx-auto text-center relative">
+        <h1 class="text-4xl md:text-5xl font-bold mb-2 text-green-400 tracking-wider">SNAKE</h1>
+        <div class="flex justify-between items-center bg-gray-800 p-3 rounded-lg shadow-lg mb-4 text-sm md:text-base">
+            <div class="flex items-center space-x-2">
+                <span class="text-red-500 text-xl">🍎</span>
+                <span id="totalRedAppleScore" class="font-bold text-yellow-400">0</span>
+            </div>
+            <div class="flex items-center space-x-2">
+                <span class="text-yellow-400 text-xl">💰</span>
+                <span id="goldenScore" class="font-bold text-yellow-400">0</span>
+            </div>
+            <button id="restartButton" class="bg-green-500 hover:bg-green-600 text-gray-900 font-bold py-2 px-4 rounded-md">REINICIAR</button>
+        </div>
+        
+        <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+        <div id="gameOverMessage" class="hidden absolute inset-0 bg-black bg-opacity-70 flex-col justify-center items-center text-center p-4">
+            <h2 class="text-3xl sm:text-5xl text-red-500 font-bold">FIM DE JOGO</h2>
+            <p class="text-xl sm:text-2xl mt-4">Pontuação: <span id="finalScore">0</span></p>
+            <button id="restartButtonGameOver" class="mt-8 bg-green-500 hover:bg-green-600 text-gray-900 font-bold py-2 px-4 rounded-md">JOGAR NOVAMENTE</button>
+            <button id="shopButton" class="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md">LOJA</button>
+        </div>
+
+        <div id="shopMenu" class="hidden absolute inset-0 bg-gray-900 bg-opacity-95 flex-col p-4">
+             <h2 class="text-2xl mb-4">Loja</h2>
+             <div id="shopContent" class="flex-grow"></div>
+             <button id="closeShopButton" class="mt-auto bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-md">VOLTAR</button>
+        </div>
+    </div>
+
+    <div class="mt-6 grid grid-cols-3 gap-3 w-48 md:hidden">
+        <div></div><button id="upBtn" class="btn-control bg-gray-700 p-4 rounded-lg shadow-md">🔼</button><div></div>
+        <button id="leftBtn" class="btn-control bg-gray-700 p-4 rounded-lg shadow-md">◀️</button>
+        <button id="downBtn" class="btn-control bg-gray-700 p-4 rounded-lg shadow-md">🔽</button>
+        <button id="rightBtn" class="btn-control bg-gray-700 p-4 rounded-lg shadow-md">▶️</button>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
